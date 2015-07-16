@@ -16,60 +16,72 @@
                     <view key="view" contentMode="scaleToFill" id="tZd-bx-450">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3U-9V-fc0">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="63" y="81" width="248" height="364"/>
-                                </variation>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flI-q7-qgJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Album" id="ct1-gw-xIT"/>
+                                    <barButtonItem title="Album" id="ct1-gw-xIT">
+                                        <connections>
+                                            <action selector="pickAnImage:" destination="HUN-bn-IxB" id="eLQ-pK-uQN"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3U-9V-fc0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="flI-q7-qgJ" firstAttribute="top" secondItem="i3U-9V-fc0" secondAttribute="bottom" id="0cq-oy-Eum"/>
+                            <constraint firstItem="i3U-9V-fc0" firstAttribute="top" secondItem="kwJ-dg-8GJ" secondAttribute="bottom" constant="16" id="3Zf-39-wdc"/>
                             <constraint firstItem="flI-q7-qgJ" firstAttribute="leading" secondItem="tZd-bx-450" secondAttribute="leadingMargin" constant="-16" id="Ifp-TM-5Hl"/>
-                            <constraint firstItem="flI-q7-qgJ" firstAttribute="top" secondItem="i3U-9V-fc0" secondAttribute="bottom" constant="111" id="TJ7-Xs-y1Y"/>
+                            <constraint firstItem="flI-q7-qgJ" firstAttribute="top" secondItem="i3U-9V-fc0" secondAttribute="bottom" id="LnN-0o-2y5"/>
+                            <constraint firstItem="i3U-9V-fc0" firstAttribute="leading" secondItem="tZd-bx-450" secondAttribute="leadingMargin" constant="-16" id="fDT-g1-Bus"/>
                             <constraint firstAttribute="trailingMargin" secondItem="flI-q7-qgJ" secondAttribute="trailing" constant="-16" id="gsb-8c-c5l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i3U-9V-fc0" secondAttribute="trailing" constant="-16" id="igB-VZ-0wK"/>
                             <constraint firstItem="ggy-UH-Qra" firstAttribute="top" secondItem="flI-q7-qgJ" secondAttribute="bottom" id="uvV-Rh-sD0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="i3U-9V-fc0"/>
                                 <exclude reference="flI-q7-qgJ"/>
+                                <exclude reference="i3U-9V-fc0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="3Zf-39-wdc"/>
+                                <exclude reference="fDT-g1-Bus"/>
+                                <exclude reference="igB-VZ-0wK"/>
+                                <exclude reference="0cq-oy-Eum"/>
                                 <exclude reference="Ifp-TM-5Hl"/>
-                                <exclude reference="TJ7-Xs-y1Y"/>
+                                <exclude reference="LnN-0o-2y5"/>
                                 <exclude reference="gsb-8c-c5l"/>
                                 <exclude reference="uvV-Rh-sD0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="i3U-9V-fc0"/>
                                 <include reference="flI-q7-qgJ"/>
+                                <include reference="i3U-9V-fc0"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="3Zf-39-wdc"/>
+                                <include reference="fDT-g1-Bus"/>
+                                <include reference="igB-VZ-0wK"/>
+                                <include reference="0cq-oy-Eum"/>
                                 <include reference="Ifp-TM-5Hl"/>
-                                <include reference="TJ7-Xs-y1Y"/>
+                                <include reference="LnN-0o-2y5"/>
                                 <include reference="gsb-8c-c5l"/>
                                 <include reference="uvV-Rh-sD0"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="albumButton" destination="ct1-gw-xIT" id="WoT-rz-Mxw"/>
-                        <outlet property="imageView" destination="i3U-9V-fc0" id="cQ6-0q-Joh"/>
+                        <outlet property="imagePickerViewer" destination="i3U-9V-fc0" id="BJk-dg-X7c"/>
                         <outlet property="toolbar" destination="flI-q7-qgJ" id="LvV-Mk-AbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2E-dq-HnX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="268.5" y="312"/>
+            <point key="canvasLocation" x="-126" y="319"/>
         </scene>
     </scenes>
 </document>
