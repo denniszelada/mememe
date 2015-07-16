@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		95D411761B5859190042DA1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D411751B5859190042DA1A /* AppDelegate.swift */; };
-		95D411781B5859190042DA1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D411771B5859190042DA1A /* ViewController.swift */; };
 		95D4117B1B5859190042DA1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D411791B5859190042DA1A /* Main.storyboard */; };
 		95D4117D1B5859190042DA1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D4117C1B5859190042DA1A /* Images.xcassets */; };
 		95D411801B5859190042DA1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95D4117E1B5859190042DA1A /* LaunchScreen.xib */; };
 		95D4118C1B5859190042DA1A /* mememeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4118B1B5859190042DA1A /* mememeTests.swift */; };
+		95D411C41B5861730042DA1A /* MememeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D411C31B5861730042DA1A /* MememeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		95D411701B5859190042DA1A /* mememe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mememe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D411741B5859190042DA1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95D411751B5859190042DA1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95D411771B5859190042DA1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95D4117A1B5859190042DA1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95D4117C1B5859190042DA1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95D4117F1B5859190042DA1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		95D411851B5859190042DA1A /* mememeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mememeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D4118A1B5859190042DA1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95D4118B1B5859190042DA1A /* mememeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mememeTests.swift; sourceTree = "<group>"; };
+		95D411C31B5861730042DA1A /* MememeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MememeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				95D411751B5859190042DA1A /* AppDelegate.swift */,
-				95D411771B5859190042DA1A /* ViewController.swift */,
+				95D411C31B5861730042DA1A /* MememeViewController.swift */,
 				95D411791B5859190042DA1A /* Main.storyboard */,
 				95D4117C1B5859190042DA1A /* Images.xcassets */,
 				95D4117E1B5859190042DA1A /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D411781B5859190042DA1A /* ViewController.swift in Sources */,
+				95D411C41B5861730042DA1A /* MememeViewController.swift in Sources */,
 				95D411761B5859190042DA1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
