@@ -16,6 +16,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var imagePickerViewer: UIImageView!
     
+    @IBOutlet weak var sharedButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     @IBOutlet weak var topText: UITextField!
@@ -48,6 +49,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         bottomText.delegate = self
         user_has_entered_bottom = false
         
+        sharedButton.enabled = false
         
     }
     
@@ -66,6 +68,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(imagePicker, animated: true, completion: nil)
+        sharedButton.enabled = true
     }
 
     @IBAction func pickAPhoto(sender: AnyObject) {
@@ -73,6 +76,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
+        sharedButton.enabled = true
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {

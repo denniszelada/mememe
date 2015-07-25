@@ -137,6 +137,7 @@
                         <outlet property="cameraButton" destination="hMd-4D-Qhd" id="9YK-rH-Vdu"/>
                         <outlet property="imagePickerViewer" destination="i3U-9V-fc0" id="BJk-dg-X7c"/>
                         <outlet property="navBar" destination="1PL-Nc-tdT" id="qro-gd-J6a"/>
+                        <outlet property="sharedButton" destination="5At-Ey-GSB" id="o5L-wH-hT9"/>
                         <outlet property="toolbar" destination="flI-q7-qgJ" id="LvV-Mk-AbV"/>
                         <outlet property="topText" destination="NWu-bF-GBy" id="YnC-b2-70s"/>
                     </connections>
