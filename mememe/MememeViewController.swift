@@ -24,7 +24,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     var user_has_entered_top: Bool!
     var user_has_entered_bottom: Bool!
     var current_edited_field: UITextField!
-    
+    var memes: [Meme]!
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -56,6 +56,10 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        memes = appDelegate.memes
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,7 +93,6 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func keyboardWillShow(notification: NSNotification) {
         if current_edited_field == bottomText {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
-            println(getKeyboardHeight(notification))
         }
 
     }
@@ -97,7 +100,6 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func keyboardWillHide(notification: NSNotification) {
         if current_edited_field == bottomText {
             self.view.frame.origin.y += getKeyboardHeight(notification)
-            println(getKeyboardHeight(notification))
         }
     }
 
@@ -138,6 +140,11 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func saveMeme(){
         var meme = Meme(topText: topText.text, bottomText: bottomText.text, image: imagePickerViewer.image!, memedImage: generateMemedImage())
         
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
     }
     
     func generateMemedImage() -> UIImage {
@@ -159,6 +166,40 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         return memedImage
         
+    }
+
+    @IBAction func shareMeme(sender: AnyObject) {
+        
+        saveMeme()
+        
+        let objectsToShare = [generateMemedImage()]
+        
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        activityVC.completionWithItemsHandler = activityCompletionHandler
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
+    func activityCompletionHandler(activityType: String!,
+        completed: Bool,
+        returneditems: [AnyObject]!,
+        activityError: NSError!){
+            if completed && activityError == nil{
+                var tabBarController:UITabBarController
+                tabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("SavedMemesViewTabBarController") as! UITabBarController
+                self.presentViewController(tabBarController, animated: true, completion: nil)
+                
+            }
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 
 
