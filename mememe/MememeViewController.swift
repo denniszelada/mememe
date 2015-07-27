@@ -71,7 +71,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
         sharedButton.enabled = true
     }
 
@@ -86,20 +86,20 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerViewer.image = image
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
     func keyboardWillShow(notification: NSNotification) {
         if current_edited_field == bottomText {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
 
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if current_edited_field == bottomText {
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
         }
     }
 
@@ -154,7 +154,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        view.drawViewHierarchyInRect(self.view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
@@ -177,7 +177,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         
         activityVC.completionWithItemsHandler = activityCompletionHandler
-        self.presentViewController(activityVC, animated: true, completion: nil)
+        presentViewController(activityVC, animated: true, completion: nil)
     }
     
     func activityCompletionHandler(activityType: String!,
@@ -186,8 +186,8 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         activityError: NSError!){
             if completed && activityError == nil{
                 var tabBarController:UITabBarController
-                tabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("SavedMemesViewTabBarController") as! UITabBarController
-                self.presentViewController(tabBarController, animated: true, completion: nil)
+                tabBarController = storyboard!.instantiateViewControllerWithIdentifier("SavedMemesViewTabBarController") as! UITabBarController
+                presentViewController(tabBarController, animated: true, completion: nil)
             } else
             {
                 navBar.hidden = false
@@ -195,7 +195,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
