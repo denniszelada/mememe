@@ -55,7 +55,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -63,7 +63,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -79,7 +79,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
         sharedButton.enabled = true
     }
     
@@ -99,7 +99,7 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func keyboardWillHide(notification: NSNotification) {
         if current_edited_field == bottomText {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.view.frame.origin.y = 0
         }
     }
 
@@ -188,7 +188,9 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
                 var tabBarController:UITabBarController
                 tabBarController = self.storyboard!.instantiateViewControllerWithIdentifier("SavedMemesViewTabBarController") as! UITabBarController
                 self.presentViewController(tabBarController, animated: true, completion: nil)
-                
+            } else
+            {
+                navBar.hidden = false
             }
     }
     

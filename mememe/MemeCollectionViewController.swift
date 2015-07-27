@@ -23,7 +23,6 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         self.memes = applicationDelegate.memes
         
-        
     }
     
 
